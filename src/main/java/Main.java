@@ -1,10 +1,11 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 
-public class Main implements Serializable {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -25,7 +26,7 @@ public class Main implements Serializable {
                     "\n3. Восстановить содержимое библиотеки\n4. Выход");
             try {
                 userChoice = scanner.nextInt();
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Неверный формат ввода");
             }
             switch (userChoice) {
@@ -58,7 +59,7 @@ public class Main implements Serializable {
                     }
                 case 4:
                     for (Book book : books) {
-                        System.out.println(book.author + " " + book.title + " " + book.yearIssued);
+                        System.out.println(book.toString());
                     }
             }
 
